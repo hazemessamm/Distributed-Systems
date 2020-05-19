@@ -23,12 +23,6 @@ public class SecondryServer {
             Registry registry = LocateRegistry.createRegistry(FileServerI.secondaryPort);
             registry.rebind(FileServerI.serviceName, servant);
             System.out.println("Secondary Server is running...");
-            while(true)
-            {
-                servant.setQueue(FileServer.servant.getQueue());
-                servant.setRecordSavedData(FileServer.servant.getSavedData());
-                servant.setFirstTime(FileServer.servant.getFirstTime());
-            }
 
 
         } catch (RemoteException e) {
